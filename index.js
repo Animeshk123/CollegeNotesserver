@@ -14,6 +14,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/api/v1",router);
 
+app.get("/",(req,res) => {
+    res.send("hello from server");
+})
+
 
 mongoose.connect(mongoURL);
 const db = mongoose.connection;
