@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const router = require("./routes/route");
 const bodyParser = require("body-parser");
+const collegeRouter = require("./routes/collegeroute");
 require("dotenv").config();
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/api/v1",router);
+app.use("/api/v1/register",collegeRouter);
 
 app.get("/",(req,res) => {
     res.send("hello from server");
